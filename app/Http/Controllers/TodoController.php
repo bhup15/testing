@@ -14,7 +14,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        $todos = Todo::all(); // Assuming Todo is your model
+    return view('todos.index', compact('todos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('todos.create');
     }
 
     /**
@@ -35,7 +36,20 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'todoname' => 'required|max:255',
+            'description' => 'nullable',
+        ]);
+    
+        $todo = Todo::create($validatedData);
+    
+        if ($todo) {
+            // Todo created successfully
+            return redirect()->route('todos.index')->with('success', 'Todo created successfully');
+        } else {
+            // Todo creation failed
+            return redirect()->back()->with('error', 'Failed to create todo');
+        }
     }
 
     /**
@@ -57,7 +71,7 @@ class TodoController extends Controller
      */
     public function edit(Todo $todo)
     {
-        //
+        return view('todos.edit', compact('todo'));
     }
 
     /**

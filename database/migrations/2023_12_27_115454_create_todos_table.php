@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('todoname');
             $table->string('description');
-            $table->string('info');
-            $table->string('infodetails');
+            $table->string('info')->default('');
             $table->timestamps();
         });
     }
