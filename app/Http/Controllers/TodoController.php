@@ -14,8 +14,9 @@ class TodoController extends Controller
      */
     public function index()
     {
+        $result = customFunction();
         $todos = Todo::all(); // Assuming Todo is your model
-    return view('todos.index', compact('todos'));
+    return view('todos.index', compact('todos', 'result'));
     }
 
     /**
@@ -39,6 +40,7 @@ class TodoController extends Controller
         $validatedData = $request->validate([
             'todoname' => 'required|max:255',
             'description' => 'nullable',
+            'info' => 'nullable',
         ]);
     
         $todo = Todo::create($validatedData);

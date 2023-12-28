@@ -6,6 +6,5 @@
     <input type="text" name="todoname" id="todoname" required>
     <input type="text" name="description" id="description" required>
     <input type="text" name="info" id="info" required>
-    <input type="text" name="infodetails" id="infodetails" required>
     <button type="submit">Create Todo</button>
 </form>

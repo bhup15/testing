@@ -17,6 +17,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    // app/Providers/RouteServiceProvider.php
+
+protected $namespace = 'App\\Http\\Controllers';
+
     public const HOME = '/home';
 
     /**
