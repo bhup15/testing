@@ -22,7 +22,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dashboard'); // Redirect to the intended URL after login
+            return redirect()->intended('/todos'); // Redirect to the intended URL after login
         }
 
         return redirect()->route('login')->with('error', 'Invalid credentials');

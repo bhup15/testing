@@ -5,6 +5,7 @@ use App\Http\Controllers\TodoController;
 // routes/web.php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LogoutController;
 
 
 /*
@@ -31,6 +32,9 @@ Route::middleware('custom')->group(function () {
     Route::get('todos/create', [TodoController::class, 'create'])->name('todos.create');
     Route::post('todos/store', [TodoController::class, 'store'])->name('todos.store');
     Route::get('todos/{id}', [TodoController::class, 'show'])->name('todos.show');
+    //Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
     // Add other todo-related routes as needed
 });
 
